@@ -1,0 +1,23 @@
+server:
+  port: 4000
+spring:
+  web:
+    error:
+      include-message: always
+      include-binding-errors: always
+      include-stacktrace: never
+      include-exception: false
+  kafka:
+    bootstrap-servers: "localhost:9092"
+    consumer:
+      group-id: demo
+      auto-offset-reset: earliest
+    streams:
+      application-id: "kafka-stream"
+      state-store-cache-max-size: 0
+      state-dir: .kafka-streams
+      properties:
+        dsl:
+          store:
+            suppliers:
+              class: org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$InMemoryDslStoreSuppliers

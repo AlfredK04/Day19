@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "name": "JavaKafka",
+  "description": "Spring Boot + Kafka demo. devbox installs everything, so this works the same on Linux, macOS and Windows (WSL2).",
+
+  "packages": [
+    "temurin-bin@21",
+
+    "spring-boot-cli",
+
+    "apacheKafka"
+  ],
+
+  "env": {
+    "JAVA_HOME": "$DEVBOX_PACKAGES_DIR"
+  },
+
+  "shell": {
+    "scripts": {
+      "kafka-reset": [
+        "set -e",
+        "cd \"$DEVBOX_PROJECT_ROOT\"",
+        "rm -rf .kafka",
+        "echo 'Kafka data wiped. Start clean with: devbox services up'"
+      ]
+    }
+  }
+}
